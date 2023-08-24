@@ -2,3 +2,5 @@
 .env
 Secrets.toml
 .idea/
+Cargo.lock
+.DS_Store
