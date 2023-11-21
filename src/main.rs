@@ -104,17 +104,13 @@ async fn serenity(
         | GatewayIntents::DIRECT_MESSAGES
         | GatewayIntents::MESSAGE_CONTENT;
 
-    let mut client = Client::builder(&discord_token, intents)
+    let client = Client::builder(&discord_token, intents)
         .event_handler(Handler {
             token_id: token_id,
             guild_id: guild_id,
         })
         .await
         .expect("Error creating client");
-
-    if let Err(why) = client.start().await {
-        println!("Client error: {:?}", why);
-    }
 
     Ok(client.into())
 }
